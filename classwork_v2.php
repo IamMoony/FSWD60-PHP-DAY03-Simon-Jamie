@@ -38,7 +38,7 @@
 			if(!$result){
 				echo "error no result";
 			}
-			echo "hello";
+		
 			return $result;
 		}
 
@@ -49,7 +49,7 @@
 			if(!$rows){ 
 				echo "error no rows";
 			}
-			echo "test";
+		
 			foreach ($rows as $val) {
 				
 			
@@ -68,7 +68,7 @@
 	}
 
 	$myRetailer = new retailer();
-	$test=$myRetailer->createConn("localhost", "root", "", "bookexercise");
+	$test=$myRetailer->createConn("localhost", "root", "moony#1423", "book");
 	$test2=$myRetailer->runQuery($test);
 	$myRetailer->fetchData($test2);
 
