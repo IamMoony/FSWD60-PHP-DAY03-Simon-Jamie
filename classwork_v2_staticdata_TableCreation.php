@@ -27,8 +27,6 @@
 		</thead>
 		<tbody>
 
-
-
 			<?php 
 		/**Created a class called people, with data inside. Then crated the construct using the data and 
 		as well the usage of $this->. 
