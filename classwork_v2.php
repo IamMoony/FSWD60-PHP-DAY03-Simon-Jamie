@@ -66,7 +66,7 @@
 	}
 
 	$myRetailer = new retailer();
-	$test=$myRetailer->createConn("localhost", "root", "moony#1423", "book");
+	$test=$myRetailer->createConn("localhost", "root", "", "bookexercise");
 	$test2=$myRetailer->runQuery($test);
 	$myRetailer->fetchData($test2);
 
