@@ -4,6 +4,18 @@
 	<title></title>
 </head>
 <body>
+	<table class="table">
+		<thread>
+			<tr>
+				<th>Retailer ID</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>PLZ</th>
+				<th>City</th>
+				<th>Country</th>
+			</tr>
+		</thread>
+	<tbody>
 
 	<?php
 	class retailer
@@ -39,8 +51,12 @@
 			foreach ($rows as $val) {
 				
 			
-				echo $val["RetailerID"];
-				echo $val["RetailerName"];
+				echo "<tr><td>".$val["RetailerID"]."</td>";
+				echo "<td>".$val["RetailerName"]."</td>";
+				echo "<td>".$val["RetailerAddress"]."</td>";
+				echo "<td>".$val["RetailerPLZ"]."</td>";
+				echo "<td>".$val["RetailerCity"]."</td>";
+				echo "<td>".$val["RetailerCountry"]."</td></tr>";
 				
 			}
 		}
@@ -55,6 +71,7 @@
 	$myRetailer->fetchData($test2);
 
 	?>
-
+</tbody>
+</table>
 </body>
 </html>
