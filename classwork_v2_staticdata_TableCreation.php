@@ -63,7 +63,7 @@
 			public $country = "Austria";
 
 			public function addLocation() {
-				return $this->setPerson(). "<td>" .$this->city. "</td><td>" .$this->country. "</td></tr>";
+				return $this->setPerson(). "<td>" .$this->city. "</td><td>" .$this->country. "</td><td><button>Edit</button><button>Delete</button></td></tr>";
 			}
 		}
 		$LocationObj = new CountryLocation('Jamie', 'Slaats', 1977, 42,'Male');
