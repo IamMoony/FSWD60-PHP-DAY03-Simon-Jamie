@@ -8,8 +8,9 @@
 </head>
 <body>
 	
-	<?php 
-		/**
+		<?php 
+		/**Created a class called people, with data inside. Then crated the construct using the data and 
+		as well the usage of $this->. 
 		 * 
 		 */
 		class people {
@@ -32,10 +33,10 @@
 		}
 		
 		}
-		$Jamie = new people('Jamie', 'Slaats', 1977, 42,'Male');
+		/*$Jamie = new people('Jamie', 'Slaats', 1977, 42,'Male');
 		$Simon = new people('Simon', 'Blaha', 1990, 28,'sexy af');
 		$Jamie->setPerson();
-		$Simon->setPerson();
+		$Simon->setPerson();*/
 
 		/**
 		 * 
