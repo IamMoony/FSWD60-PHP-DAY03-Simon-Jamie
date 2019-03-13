@@ -6,7 +6,53 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
+<h2>Form</h2>
+  <form class="form-horizontal" action="" method="POST">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="full_name">RetailerID</label>
+      <div class="col-sm-10">
+        <input type="name" class="form-control" id="firstname" placeholder="Enter Name" name="RetailerID">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Name</label>
+      <div class="col-sm-10">          
+        <input type="lastname" class="form-control" id="lastname" placeholder="Enter Last Name" name="RetailerName">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Address</label>
+      <div class="col-sm-10">          
+        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerAddress">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">PLZ</label>
+      <div class="col-sm-10">          
+        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerPLZ">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">City</label>
+      <div class="col-sm-10">          
+        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerCity">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Country</label>
+      <div class="col-sm-10">          
+        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerCountry">
+      </div>
+    </div>
 
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default" name="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
 
 
 
@@ -48,23 +94,23 @@
 					return $result;
 				}
 
-				public function insertData(){
-					if (isset($_POST["submit"])) {
-						$RetailerID = mysqli_real_escape_string(createConn(), $_POST['RetailerID']);
-						$RetailerName = mysqli_real_escape_string(createConn(), $_POST['RetailerName']);
-						$RetailerAddress = mysqli_real_escape_string(createConn(), $_POST['RetailerAddress']);
-						$RetailerPLZ = mysqli_real_escape_string(createConn(), $_POST['RetailerPLZ']);
-						$RetailerCity = mysqli_real_escape_string(createConn(), $_POST['RetailerCity']);
-						$RetailerCountry = mysqli_real_escape_string(createConn(), $_POST['RetailerCountry']);
+				public function insertData($conn){
+					
+						$RetailerID = mysqli_real_escape_string($conn, $_POST['RetailerID']);
+						$RetailerName = mysqli_real_escape_string($conn, $_POST['RetailerName']);
+						$RetailerAddress = mysqli_real_escape_string($conn, $_POST['RetailerAddress']);
+						$RetailerPLZ = mysqli_real_escape_string($conn, $_POST['RetailerPLZ']);
+						$RetailerCity = mysqli_real_escape_string($conn, $_POST['RetailerCity']);
+						$RetailerCountry = mysqli_real_escape_string($conn, $_POST['RetailerCountry']);
 						$sql = "INSERT INTO retailer (RetailerID,RetailerName,RetailerAddress,RetailerPLZ,RetailerCity,RetailerCountry) VALUES ('$RetailerID', '$RetailerName','$RetailerAddress', '$RetailerPLZ', '$RetailerCity','$RetailerCountry')";
-						if (mysqli_query(createConn(), $sql)){
+						if (mysqli_query($conn, $sql)){
 							echo "New Record Created";
 
 						} else {
-							echo "Record Creation Error for: " .$sql . mysqli_error(createConn());
+							echo "Record Creation Error for: " .$sql . mysqli_error($conn);
 						}
 
-					}
+					
 
 				}
 
@@ -85,9 +131,12 @@
 			}
 
 			$myRetailer = new retailer();
-			$test=$myRetailer->createConn("localhost", "root", "", "book");
-			$test2=$myRetailer->runQuery($test);
-			$myRetailer->fetchData($test2);
+			$establishconn=$myRetailer->createConn("localhost", "root", "moony#1423", "book");
+			$ourquery=$myRetailer->runQuery($establishconn);
+			$myRetailer->fetchData($ourquery);
+			if (isset($_POST["submit"])) {
+				$myRetailer->insertData($establishconn);
+			}
 
 			?>
 		</tbody>
