@@ -67,7 +67,7 @@
 			}
 		}
 		$LocationObj = new CountryLocation('Jamie', 'Slaats', 1977, 42,'Male');
-		$LocationObj1 = new CountryLocation('Simon', 'Blaha', 1990, 28,'sexy af');
+		$LocationObj1 = new CountryLocation('Simon', 'Blaha', 1990, 28,'Male');
 		$result = $LocationObj->addLocation();
 		$result1 = $LocationObj1->addLocation();
 		echo $result;

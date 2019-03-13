@@ -47,7 +47,7 @@
 
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default" name="submit">Submit</button>
+        <input type="submit" class="btn btn-default" name="submit" value="Submit">
       </div>
     </div>
   </form>
@@ -123,10 +123,12 @@
 
 			$myRetailer = new retailer();
 			$establishconn=$myRetailer->createConn("localhost", "root", "", "book");
-			$ourquery=$myRetailer->runQuery($establishconn);
-			$myRetailer->fetchData($ourquery);
+			/*$ourquery=$myRetailer->runQuery($establishconn);
+			$myRetailer->fetchData($ourquery);*/ /*With this entry it is pulling the refresh query first*/ 
 			if (isset($_POST["submit"])) {
 				$myRetailer->insertData($establishconn);
+				$ourquery=$myRetailer->runQuery($establishconn);
+				$myRetailer->fetchData($ourquery);
 			}
 
 			?>
