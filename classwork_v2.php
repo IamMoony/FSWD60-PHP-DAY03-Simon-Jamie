@@ -11,37 +11,37 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="full_name">RetailerID</label>
       <div class="col-sm-10">
-        <input type="name" class="form-control" id="firstname" placeholder="Enter Name" name="RetailerID">
+        <input type="name" class="form-control" id="firstname" placeholder="" name="RetailerID">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Name</label>
       <div class="col-sm-10">          
-        <input type="lastname" class="form-control" id="lastname" placeholder="Enter Last Name" name="RetailerName">
+        <input type="lastname" class="form-control" id="lastname" placeholder="" name="RetailerName">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Address</label>
       <div class="col-sm-10">          
-        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerAddress">
+        <input type="" class="form-control" id="zip-code" placeholder="" name="RetailerAddress">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">PLZ</label>
       <div class="col-sm-10">          
-        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerPLZ">
+        <input type="" class="form-control" id="zip-code" placeholder="" name="RetailerPLZ">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">City</label>
       <div class="col-sm-10">          
-        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerCity">
+        <input type="" class="form-control" id="zip-code" placeholder="" name="RetailerCity">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Country</label>
       <div class="col-sm-10">          
-        <input type="" class="form-control" id="zip-code" placeholder="Enter E-Mail" name="RetailerCountry">
+        <input type="" class="form-control" id="zip-code" placeholder="" name="RetailerCountry">
       </div>
     </div>
 
@@ -53,11 +53,6 @@
   </form>
 </div>
 </div>
-
-
-
-
-
 
 	<table class="table">
 		<thread>
@@ -109,9 +104,6 @@
 						} else {
 							echo "Record Creation Error for: " .$sql . mysqli_error($conn);
 						}
-
-					
-
 				}
 
 				public function fetchData($query) {
@@ -123,7 +115,6 @@
 
 					foreach ($rows as $val) {
 
-
 						echo "<tr><td>".$val["RetailerID"]."</td><td>".$val["RetailerName"]."</td><td>".$val["RetailerAddress"]."</td><td>".$val["RetailerPLZ"]."</td><td>".$val["RetailerCity"]."</td><td>".$val["RetailerCountry"]."</td><td><button>Edit</button></td><td><button>Delete</button></td></tr>";
 
 					}
@@ -131,7 +122,7 @@
 			}
 
 			$myRetailer = new retailer();
-			$establishconn=$myRetailer->createConn("localhost", "root", "moony#1423", "book");
+			$establishconn=$myRetailer->createConn("localhost", "root", "", "book");
 			$ourquery=$myRetailer->runQuery($establishconn);
 			$myRetailer->fetchData($ourquery);
 			if (isset($_POST["submit"])) {
